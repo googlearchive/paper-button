@@ -110,7 +110,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       downAction: function(e) {
-        if (this.disabled) {
+        if (this.disabled || e.button != 0) {
           return;
         }
 
@@ -144,7 +144,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       },
 
       upAction: function(e) {
-        if (this.disabled) {
+        if (this.disabled || e.button != 0) {
           return;
         }
 
