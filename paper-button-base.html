@@ -114,13 +114,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       downAction: function(e) {
         this._downAction();
 
+        var ripple = this.$.ripple;
         if (this.hasAttribute('noink')) {
+          if ( ripple && ripple.parentNode === this.shadowRoot )
+              this.shadowRoot.removeChild( ripple );
           return;
         }
 
         this.lastEvent = e;
-        if (!this.$.ripple) {
-          var ripple = document.createElement('paper-ripple');
+        if ( ! ripple ) {
+          ripple = document.createElement('paper-ripple');
           ripple.setAttribute('id', 'ripple');
           ripple.setAttribute('fit', '');
           if (this.recenteringTouch) {
@@ -130,10 +133,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             ripple.classList.add('circle');
           }
           this.$.ripple = ripple;
+        }
+        if ( ripple.parentNode !== this.shadowRoot )
           this.shadowRoot.insertBefore(ripple, this.shadowRoot.firstChild);
           // No need to forward the event to the ripple because the ripple
           // is triggered in activeChanged
-        }
       },
 
       upAction: function() {
