@@ -36,7 +36,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         this.super();
 
         if (this.$.ripple) {
-          if (this.active) {
+          if (this.active && this.pressed) {
             // FIXME: remove when paper-ripple can have a default 'down' state.
             if (!this.lastEvent) {
               var rect = this.getBoundingClientRect();
