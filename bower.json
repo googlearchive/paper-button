@@ -1,6 +1,9 @@
 {
   "name": "paper-button",
   "private": true,
+  "main": [
+    "paper-button.html"
+  ].
   "dependencies": {
     "polymer": "Polymer/polymer#0.8-preview",
     "paper-ripple": "Polymer/paper-ripple#0.8-preview",
